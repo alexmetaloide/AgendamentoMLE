@@ -1,0 +1,5 @@
+{
+  "name": "Agendamentos-Master League Elite",
+  "description": "Aplicativo para gerenciamento de agendamento de partidas de campeonatos virtuais com gerador de mensagens para WhatsApp.",
+  "requestFramePermissions": []
+}
