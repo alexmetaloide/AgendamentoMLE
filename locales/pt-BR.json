@@ -1,0 +1,72 @@
+{
+    "app": {
+        "title": "Agendamentos MLE",
+        "subtitle": "Master League Elite"
+    },
+    "nav": {
+        "schedule": "Agendar",
+        "opponents": "Adversários",
+        "logout": "Sair"
+    },
+    "opponents": {
+        "title": "Gerenciar Adversários",
+        "subtitle": "Cadastre os contatos para agilizar",
+        "new": "Novo",
+        "back": "Voltar",
+        "import": "Importar",
+        "export": "Exportar",
+        "edit": "Editar",
+        "delete": "Excluir",
+        "save": "Salvar",
+        "cancel": "Cancelar",
+        "saving": "Salvando...",
+        "name": "Nome",
+        "phone": "Telefone",
+        "club": "Clube",
+        "observation": "Observação",
+        "deleteConfirm": "Tem certeza que deseja excluir este adversário?",
+        "deleteError": "Erro ao excluir adversário",
+        "saveError": "Erro ao salvar adversário",
+        "noOpponents": "Nenhum adversário cadastrado",
+        "exportSuccess": "✅ Adversários exportados com sucesso!",
+        "exportError": "❌ Erro ao exportar",
+        "importSuccess": "✅ {count} adversário(s) importado(s) com sucesso!",
+        "importError": "❌ Erro ao importar",
+        "noClub": "Sem clube"
+    },
+    "schedule": {
+        "title": "Informações",
+        "host": "Mandante",
+        "hostClub": "Clube do Mandante",
+        "championship": "Campeonato",
+        "opponent": "Adversário",
+        "selectOpponent": "Selecione um adversário",
+        "observation": "Observação",
+        "availability": "Disponibilidade",
+        "generate": "Gerar Mensagem",
+        "days": {
+            "monday": "Segunda-feira",
+            "tuesday": "Terça-feira",
+            "wednesday": "Quarta-feira",
+            "thursday": "Quinta-feira",
+            "friday": "Sexta-feira",
+            "saturday": "Sábado",
+            "sunday": "Domingo"
+        },
+        "unavailable": "Indisponível",
+        "slot1": "Horário 1",
+        "slot2": "Horário 2",
+        "start": "Início",
+        "end": "Fim"
+    },
+    "auth": {
+        "login": "Entrar",
+        "signup": "Cadastrar",
+        "email": "E-mail",
+        "password": "Senha",
+        "forgotPassword": "Esqueci minha senha",
+        "noAccount": "Não tem uma conta?",
+        "hasAccount": "Já tem uma conta?",
+        "loading": "Carregando..."
+    }
+}

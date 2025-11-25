@@ -7,7 +7,9 @@ import { ScheduleForm } from './components/ScheduleForm';
 import { MessagePreview } from './components/MessagePreview';
 import { OpponentService } from './services/opponentService';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { LoginForm } from './components/LoginForm';
+import { LanguageSelector } from './components/LanguageSelector';
 
 function AppContent() {
   const { logout } = useAuth();
@@ -148,6 +150,8 @@ ${formData.host}`;
               </button>
             </nav>
 
+            <LanguageSelector />
+
             <button
               onClick={logout}
               className="text-slate-400 hover:text-white transition-colors p-2 rounded-md hover:bg-slate-800"
@@ -198,9 +202,11 @@ ${formData.host}`;
 
 function App() {
   return (
-    <AuthProvider>
-      <AppAuthWrapper />
-    </AuthProvider>
+    <LanguageProvider>
+      <AuthProvider>
+        <AppAuthWrapper />
+      </AuthProvider>
+    </LanguageProvider>
   );
 }
 

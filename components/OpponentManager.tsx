@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Opponent } from '../types';
 import { Button } from './Button';
-import { Trash2, Edit2, Plus, Save, X, Search, Users, Phone, Shield } from 'lucide-react';
+import { Trash2, Edit2, Plus, Save, X, Search, Users, Phone, Shield, Download, Upload, FileJson, FileSpreadsheet } from 'lucide-react';
+import { exportToJSON, exportToCSV } from '../utils/exportData';
+import { parseJSONFile, parseCSVFile, isValidFileType } from '../utils/importData';
 
 interface OpponentManagerProps {
   opponents: Opponent[];
@@ -15,6 +17,7 @@ export const OpponentManager: React.FC<OpponentManagerProps> = ({ opponents, onA
   const [editingId, setEditingId] = useState<string | number | null>(null);
   const [editForm, setEditForm] = useState<Partial<Opponent>>({});
   const [loading, setLoading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>, id: string | number) => {
     e.preventDefault();
@@ -70,6 +73,60 @@ export const OpponentManager: React.FC<OpponentManagerProps> = ({ opponents, onA
     setEditForm({ name: '', phone: '', club: '', observation: '' });
   };
 
+  // Export handlers
+  const handleExportJSON = () => {
+    try {
+      exportToJSON(opponents);
+      alert('✅ Adversários exportados com sucesso!');
+    } catch (error) {
+      alert('❌ Erro ao exportar: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
+    }
+  };
+
+  const handleExportCSV = () => {
+    try {
+      exportToCSV(opponents);
+      alert('✅ Adversários exportados com sucesso!');
+    } catch (error) {
+      alert('❌ Erro ao exportar: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
+    }
+  };
+
+  // Import handler
+  const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setLoading(true);
+      let importedOpponents: Opponent[];
+
+      if (file.name.endsWith('.json')) {
+        importedOpponents = await parseJSONFile(file);
+      } else if (file.name.endsWith('.csv')) {
+        importedOpponents = await parseCSVFile(file);
+      } else {
+        throw new Error('Formato de arquivo não suportado. Use JSON ou CSV.');
+      }
+
+      // Add each imported opponent
+      for (const opp of importedOpponents) {
+        await onAdd({ name: opp.name, phone: opp.phone, club: opp.club, observation: opp.observation });
+      }
+
+      alert(`✅ ${importedOpponents.length} adversário(s) importado(s) com sucesso!`);
+
+      // Reset file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    } catch (error) {
+      alert('❌ Erro ao importar: ' + (error instanceof Error ? error.message : 'Erro desconhecido'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const inputClass = "w-full border-slate-700 bg-slate-900/50 text-white placeholder-slate-500 rounded-md focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-sm p-2 border";
 
   return (
@@ -83,6 +140,52 @@ export const OpponentManager: React.FC<OpponentManagerProps> = ({ opponents, onA
           <p className="text-xs text-slate-500 mt-0.5 hidden sm:block">Cadastre os contatos para agilizar.</p>
         </div>
         <div className="flex gap-2">
+          {/* Hidden file input */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json,.csv"
+            onChange={handleImport}
+            style={{ display: 'none' }}
+          />
+
+          {/* Import Button */}
+          <Button
+            variant="outline"
+            onClick={() => fileInputRef.current?.click()}
+            size="sm"
+            className="h-9 text-xs flex items-center gap-1"
+            disabled={loading}
+          >
+            <Upload size={14} /> Importar
+          </Button>
+
+          {/* Export Dropdown */}
+          <div className="relative group">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 text-xs flex items-center gap-1"
+              disabled={opponents.length === 0}
+            >
+              <Download size={14} /> Exportar
+            </Button>
+            <div className="absolute right-0 top-full mt-1 bg-slate-800 border border-slate-700 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 min-w-[120px]">
+              <button
+                onClick={handleExportJSON}
+                className="w-full text-left px-3 py-2 text-xs text-slate-200 hover:bg-slate-700 flex items-center gap-2 rounded-t-md"
+              >
+                <FileJson size={14} /> JSON
+              </button>
+              <button
+                onClick={handleExportCSV}
+                className="w-full text-left px-3 py-2 text-xs text-slate-200 hover:bg-slate-700 flex items-center gap-2 rounded-b-md"
+              >
+                <FileSpreadsheet size={14} /> CSV
+              </button>
+            </div>
+          </div>
+
           <Button variant="outline" onClick={onBack} size="sm" className="h-9 text-xs">Voltar</Button>
           <Button onClick={handleAddNew} variant="primary" size="sm" className="h-9 text-xs flex items-center gap-1">
             <Plus size={14} /> Novo

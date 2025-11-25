@@ -1,0 +1,72 @@
+{
+    "app": {
+        "title": "MLE Scheduling",
+        "subtitle": "Master League Elite"
+    },
+    "nav": {
+        "schedule": "Schedule",
+        "opponents": "Opponents",
+        "logout": "Logout"
+    },
+    "opponents": {
+        "title": "Manage Opponents",
+        "subtitle": "Register contacts for faster scheduling",
+        "new": "New",
+        "back": "Back",
+        "import": "Import",
+        "export": "Export",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "saving": "Saving...",
+        "name": "Name",
+        "phone": "Phone",
+        "club": "Club",
+        "observation": "Notes",
+        "deleteConfirm": "Are you sure you want to delete this opponent?",
+        "deleteError": "Error deleting opponent",
+        "saveError": "Error saving opponent",
+        "noOpponents": "No opponents registered",
+        "exportSuccess": "✅ Opponents exported successfully!",
+        "exportError": "❌ Export error",
+        "importSuccess": "✅ {count} opponent(s) imported successfully!",
+        "importError": "❌ Import error",
+        "noClub": "No club"
+    },
+    "schedule": {
+        "title": "Information",
+        "host": "Host",
+        "hostClub": "Host Club",
+        "championship": "Championship",
+        "opponent": "Opponent",
+        "selectOpponent": "Select an opponent",
+        "observation": "Notes",
+        "availability": "Availability",
+        "generate": "Generate Message",
+        "days": {
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday",
+            "sunday": "Sunday"
+        },
+        "unavailable": "Unavailable",
+        "slot1": "Time Slot 1",
+        "slot2": "Time Slot 2",
+        "start": "Start",
+        "end": "End"
+    },
+    "auth": {
+        "login": "Sign In",
+        "signup": "Sign Up",
+        "email": "Email",
+        "password": "Password",
+        "forgotPassword": "Forgot password",
+        "noAccount": "Don't have an account?",
+        "hasAccount": "Already have an account?",
+        "loading": "Loading..."
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "app": {
+        "title": "Agendamientos MLE",
+        "subtitle": "Master League Elite"
+    },
+    "nav": {
+        "schedule": "Agendar",
+        "opponents": "Adversarios",
+        "logout": "Salir"
+    },
+    "opponents": {
+        "title": "Gestionar Adversarios",
+        "subtitle": "Registra contactos para agilizar",
+        "new": "Nuevo",
+        "back": "Volver",
+        "import": "Importar",
+        "export": "Exportar",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "saving": "Guardando...",
+        "name": "Nombre",
+        "phone": "Teléfono",
+        "club": "Club",
+        "observation": "Observación",
+        "deleteConfirm": "¿Estás seguro de que quieres eliminar este adversario?",
+        "deleteError": "Error al eliminar adversario",
+        "saveError": "Error al guardar adversario",
+        "noOpponents": "Ningún adversario registrado",
+        "exportSuccess": "✅ ¡Adversarios exportados con éxito!",
+        "exportError": "❌ Error al exportar",
+        "importSuccess": "✅ ¡{count} adversario(s) importado(s) con éxito!",
+        "importError": "❌ Error al importar",
+        "noClub": "Sin club"
+    },
+    "schedule": {
+        "title": "Información",
+        "host": "Anfitrión",
+        "hostClub": "Club Anfitrión",
+        "championship": "Campeonato",
+        "opponent": "Adversario",
+        "selectOpponent": "Selecciona un adversario",
+        "observation": "Observación",
+        "availability": "Disponibilidad",
+        "generate": "Generar Mensaje",
+        "days": {
+            "monday": "Lunes",
+            "tuesday": "Martes",
+            "wednesday": "Miércoles",
+            "thursday": "Jueves",
+            "friday": "Viernes",
+            "saturday": "Sábado",
+            "sunday": "Domingo"
+        },
+        "unavailable": "No disponible",
+        "slot1": "Horario 1",
+        "slot2": "Horario 2",
+        "start": "Inicio",
+        "end": "Fin"
+    },
+    "auth": {
+        "login": "Iniciar sesión",
+        "signup": "Registrarse",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "forgotPassword": "Olvidé mi contraseña",
+        "noAccount": "¿No tienes una cuenta?",
+        "hasAccount": "¿Ya tienes una cuenta?",
+        "loading": "Cargando..."
+    }
+}
