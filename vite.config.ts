@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => {
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['icons/icon-192.png', 'icons/icon-512.png'],
+        devOptions: {
+          enabled: true
+        },
         manifest: {
           name: 'Agendamentos Master League Elite',
           short_name: 'MLE Schedule',
